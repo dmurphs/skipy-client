@@ -1,29 +1,29 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
-var APP_DIR = path.resolve(__dirname, 'app');
+var BUILD_DIR = path.resolve(__dirname, 'src/public');
+var APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
-    entry: APP_DIR + '/index.jsx', 
-    
+    entry: APP_DIR + '/index.jsx',
+
     output: {
         path: BUILD_DIR,
-        filename: 'bundle.js', 
+        filename: 'bundle.js',
     },
-    
+
     module: {
         loaders: [
             {test: /\.jsx?$/,
-                loader: 'babel-loader', 
+                loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react']
                 }
             }
         ]
     },
-    
+
     resolve: {
-        extensions: ['.js', '.jsx'] 
-    }   
+        extensions: ['.js', '.jsx']
+    }
 }
