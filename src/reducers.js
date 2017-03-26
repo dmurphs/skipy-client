@@ -4,9 +4,9 @@ import {GET_LOCATIONS} from './actions'
 function locations(state = {}, action) {
   switch (action.type) {
     case GET_LOCATIONS:
-      console.log('hit get locations reducer')
       return Object.assign({}, state, {
-        locations: action.locations
+        locationNames: action.locations,
+        receivedAt: action.receivedAt
       })
     default:
       return state

@@ -4,7 +4,7 @@ import { connect, Provider } from 'react-redux'
 import configureStore from '../configureStore'
 import App from './App'
 
-const store = configureStore()
+const store = configureStore({locations: {locationNames: []}})
 
 export default class Root extends Component{
   render(){

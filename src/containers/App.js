@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchLocations } from '../actions'
 import MapControls from '../components/MapControls'
+import Map from '../components/Map'
 
 class App extends Component {
   componentDidMount() {
@@ -11,15 +12,26 @@ class App extends Component {
   }
 
   render(){
+    const startYear = 1930
+
+    var today = new Date();
+    var endYear = today.getFullYear() + 1;
+
+    const yearRange = Array.from({length: (endYear - startYear)}, (v, k) => k + startYear);
+
     let {locations} = this.props
+
     return (
-      <h1>Some stuff</h1>
+      <div ref="app">
+        <MapControls locations={locations} years={yearRange} />
+        <Map initLat={46.875015} initLon={-113.999041} />
+      </div>
     )
   }
 }
 
 App.propTypes = {
-  locations: PropTypes.array.isRequired
+  locations: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
