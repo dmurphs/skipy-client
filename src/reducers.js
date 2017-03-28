@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import {GET_LOCATIONS} from './actions'
+import {GET_LOCATIONS, GET_LOCATION_MONTHLY_SNOW} from './actions'
 
-function locations(state = {}, action) {
+function monthlySnowData(state = {}, action) {
   switch (action.type) {
-    case GET_LOCATIONS:
+    case GET_LOCATION_MONTHLY_SNOW:
       return Object.assign({}, state, {
-        locationNames: action.locations,
+        data: action.data,
         receivedAt: action.receivedAt
       })
     default:
@@ -13,8 +13,9 @@ function locations(state = {}, action) {
   }
 }
 
+
 const rootReducer = combineReducers({
-  locations
+  monthlySnowData
 })
 
 export default rootReducer

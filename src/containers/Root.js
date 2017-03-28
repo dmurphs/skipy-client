@@ -4,7 +4,13 @@ import { connect, Provider } from 'react-redux'
 import configureStore from '../configureStore'
 import App from './App'
 
-const store = configureStore({locations: {locationNames: []}})
+const initialState = {
+  monthlySnowData: {
+    data: []
+  }
+}
+
+const store = configureStore(initialState)
 
 export default class Root extends Component{
   render(){
